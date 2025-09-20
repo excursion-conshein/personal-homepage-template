@@ -1,0 +1,16 @@
+[
+  {
+    "logoSrc": "THU_logo.png",
+    "school": "Tsinghua University (THU)",
+    "details": 
+    [
+      {
+        "degree": "Bachelor of Engineering",
+        "major": "Mechanical Engineering", 
+        "college": "School of Mechanical Engineering",
+        "time": "2025.9 - current"
+      }
+    ],
+    "link": "https://www.thu.edu.cn/"
+  }
+]
