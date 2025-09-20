@@ -1,4 +1,4 @@
-# Excursion ConsHein Homepage 个人主页创建教程
+# Excursion ConsHein 个人主页 (ECPH) 
 
 [English Version](README.md) | [中文版](README_zh.md)
 
@@ -16,7 +16,7 @@
 
 Update: 2025-09-18
 
-## Excursion ConsHein Homepage 2.0 Update 1 发布，推出新的明暗切换功能！
+## ECPH 2.0 Update 1 发布，推出新的明暗切换功能！
 
 ![light](./images/preview/interface_light.gif)
 
@@ -24,7 +24,7 @@ Update: 2025-09-18
 
 Update: 2025-09-17
 
-## 全新的 Excursion ConsHein Homepage 2.0 版本正式上线！
+## 全新的 ECPH 2.0 版本正式上线！
 
 本次 2.0 版本的主页模板，带来了更多的革新和优化内容！
 

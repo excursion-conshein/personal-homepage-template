@@ -1,4 +1,4 @@
-# Excursion ConsHein Homepage Personal Homepage Creation Tutorial
+# Excursion ConsHein Personal Homepage (ECPH)
 
 English Version | [中文版](README_zh.md)
 
@@ -16,14 +16,14 @@ You can try this homepage via the link: [Excursion Conshein Homepage](https://ex
 
 Update: 2025-09-18
 
-## Excursion ConsHein Homepage 2.0 Update 1 Released, with Light and Dark Mode Switching Function!
+## ECPH 2.0 Update 1 Released, with Light and Dark Mode Switching Function!
 
 ![light](./images/preview/interface_light.gif)
 
 ---
 Update: 2025-09-17
 
-## Excursion ConsHein Homepage 2.0, is officially online!
+## ECPH 2.0 is officially online!
 
 This 2.0 version of the homepage template brings more innovations and optimizations!
 
