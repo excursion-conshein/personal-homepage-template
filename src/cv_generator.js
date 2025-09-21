@@ -1,3 +1,0 @@
-// CV Generator
-
-// Stay tuned!

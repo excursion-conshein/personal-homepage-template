@@ -161,7 +161,8 @@ const languageTexts = {
         github: 'GitHub',
         
         // Common
-        downloadFullCV: 'Download Full CV',
+        downloadFullCV: 'Generate and Download Full CV',
+        cvButtonText: 'Click the button above to generate and download your full CV',
         welcome: 'Welcome to ',
         homepage: 'homepage!',
         researchContentComingSoon: 'Research content coming soon...',
@@ -206,7 +207,8 @@ const languageTexts = {
         github: 'GitHub',
         
         // Common - Inherits English structure, only translates some common words
-        downloadFullCV: '下载完整简历',
+        downloadFullCV: '生成并下载完整简历',
+        cvButtonText: '点击上方按钮生成并下载您的完整简历',
         welcome: '欢迎来到',
         homepage: '的主页！',
         researchContentComingSoon: '研究内容即将推出...',
@@ -265,20 +267,20 @@ function setLanguage(lang) {
                 // Set html lang attribute for CSS selectors
                 document.documentElement.lang = lang;
                 
-                // Update UI language elements
+                // Update UI language elements first to maintain UI consistency
                 updateUILanguage();
                 
-                // Reload content for the active section
+                // Then reload content for the active section
                 reloadContent();
                 
-                // Wait a bit longer for translation to complete, then fade in
+                // Wait a bit longer for content to load, then fade in
                 setTimeout(() => {
                     // Use requestAnimationFrame for smoother transition
                     requestAnimationFrame(() => {
                         activeSection.style.transition = 'opacity 0.4s ease';
                         activeSection.style.opacity = '1';
                     });
-                }, 300); // Increased delay for translation to complete
+                }, 400); // Increased delay to ensure content is loaded before fade in
             }, 400); // Wait for fade out to complete
         } else {
             // No active section, just change language directly
@@ -328,7 +330,7 @@ function toggleLanguage() {
         }
         // Reset flag to allow language switching again
         isLanguageSwitchInProgress = false;
-    }, 800); // Wait for language change to complete (increased to match new timing)
+    }, 1200); // Increased wait time to ensure content is fully loaded before restoring button
 }
 
 // Function to get text in current language
@@ -723,6 +725,15 @@ function updateSectionContentLanguage(sectionId) {
           ? `configs/zh/cv_zh.pdf?t=${timestamp}`
           : `configs/en/cv.pdf?t=${timestamp}`;
         cvDownloadBtn.setAttribute('href', newHref);
+        
+        // Ensure the button has the correct ID for the event listener
+        cvDownloadBtn.setAttribute('id', 'generate-cv-btn');
+      }
+      
+      // Update CV info text
+      const cvInfoText = section.querySelector('.cv-info p');
+      if (cvInfoText) {
+        cvInfoText.textContent = getText('cvButtonText');
       }
       
       // Clear PDF viewer before refreshing to prevent caching issues

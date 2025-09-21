@@ -249,9 +249,9 @@ body.light-theme .module-container.education {
     border-left: 4px solid var(--accent) !important;
 }
 
-/* Experience module styles for light theme */
-body.light-theme .module-container.experience {
-    border-left: 4px solid #4caf50 !important;
+/* Employment module styles for light theme */
+body.light-theme .module-container.employment {
+    border-left: 4px solid #ff5722 !important;
 }
 
 /* Honor module styles for light theme */
@@ -307,6 +307,21 @@ body.light-theme .module-date {
 /* Education module date styles for light theme */
 body.light-theme .module-container.education .module-date {
     color: #e74c3c !important;
+}
+
+/* Employment module date styles for light theme */
+body.light-theme .module-container.employment .module-date {
+    color: #e74c3c !important;
+}
+
+/* Education module strong:first-child styles for light theme */
+body.light-theme .module-container.education .module-content strong:first-child {
+    color: #3498db !important;
+}
+
+/* Employment module strong:first-child styles for light theme */
+body.light-theme .module-container.employment .module-content strong:first-child {
+    color: #3498db !important;
 }
 
 /* Module link styles for light theme */
