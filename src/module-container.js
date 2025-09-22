@@ -26,7 +26,7 @@ function getModuleText(key, language = 'en') {
         return window.getText(key, language);
     }
     
-    // Fallback to local language texts - 中文状态继承英文状态，仅在名词和数据引入方面保留区别
+    // Fallback to local language texts - Chinese state inherits English structure, only differs in nouns and data introduction
     const localLanguageTexts = {
         en: {
             paper: 'Paper',
@@ -43,7 +43,7 @@ function getModuleText(key, language = 'en') {
             hideDetails: 'Hide Details'
         },
         zh: {
-            // 中文状态继承英文状态，仅在名词和数据引入方面保留区别
+            // Chinese state inherits English structure, only differs in nouns and data introduction
             paper: '论文',
             code: '代码',
             video: '视频',
@@ -344,7 +344,7 @@ function createModuleContainer(data, type, language = 'en') {
             }
             
             moduleFooter.appendChild(moduleLinks);
-            // 先不添加moduleFooter，等到moduleBody添加到moduleContainer后再添加
+            // Don't add moduleFooter yet, wait until moduleBody is added to moduleContainer
         }
     }
     
@@ -353,7 +353,7 @@ function createModuleContainer(data, type, language = 'en') {
         moduleContainer.appendChild(moduleBody);
     }
     
-    // 现在添加moduleFooter到moduleContainer中，确保它在moduleBody之后
+    // Now add moduleFooter to moduleContainer, ensuring it's after moduleBody
     if (data.paperLink || data.codeLink || data.videoLink || data.siteLink) {
         const moduleFooter = document.createElement('div');
         moduleFooter.className = 'module-footer';
@@ -382,7 +382,7 @@ function createModuleContainer(data, type, language = 'en') {
         }
         
         moduleFooter.appendChild(moduleLinks);
-        moduleContainer.appendChild(moduleFooter); // 现在将页脚添加到模块容器中，确保它在moduleBody之后
+        moduleContainer.appendChild(moduleFooter); // Now add footer to module container, ensuring it's after moduleBody
     }
     
     return moduleContainer;

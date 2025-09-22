@@ -728,6 +728,15 @@ function updateSectionContentLanguage(sectionId) {
         
         // Ensure the button has the correct ID for the event listener
         cvDownloadBtn.setAttribute('id', 'generate-cv-btn');
+        
+        // Remove any existing event listeners to avoid duplicates
+        const newButton = cvDownloadBtn.cloneNode(true);
+        cvDownloadBtn.parentNode.replaceChild(newButton, cvDownloadBtn);
+        
+        // Re-initialize the button event
+        if (typeof initCVGenerator === 'function') {
+          initCVGenerator();
+        }
       }
       
       // Update CV info text
