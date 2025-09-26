@@ -14,6 +14,14 @@
 
 --- 
 
+Update: 2025-09-26
+
+## ECPH 2.1 发布，推出了多种全新功能！
+
+- 简历一键生成，无需手动制作PDF上传！（目前仅限英文版）
+- 教育模块新增“导师”、“毕业论文”展示，工作模块新增“项目”展示
+- 审稿经历部分新增了合并结果的功能，在不同年份下的同一期刊/会议的审稿经历会合并为一条，然后依次展示年份
+
 Update: 2025-09-18
 
 ## ECPH 2.0 Update 1 发布，推出新的明暗切换功能！
@@ -104,62 +112,73 @@ Update: 2025-09-17
 
 项目的目录结构如下：
 ```
-├── index.html               # 主页面
-├── README.md                # 英文说明文档
-├── README_zh.md             # 中文说明文档（本文档）
-├── components/              # 第三方组件
-│   ├── all_min.css          # 压缩的CSS文件
-│   ├── chart.js             # 图表库
-│   ├── fa-solid-900.ttf     # Font Awesome字体
-│   └── fa-solid-900.woff2   # Font Awesome字体(WOFF2格式)
-├── configs/                 # 配置文件目录
-|   ├── config.json          # 语言模式设置
-│   ├── en/                  # 英文配置
-│   │   ├── cv.pdf           # 英文简历
-│   │   ├── education.json   # 教育经历配置
-│   │   ├── employment.json  # 工作经历配置
-│   │   ├── honors.json      # 荣誉配置
-│   │   ├── info.json        # 基本信息配置
-│   │   ├── intro.txt        # 自我介绍
-│   │   ├── news.json        # 新闻配置
-│   │   ├── papers.json      # 论文配置
-│   │   ├── patents.json     # 专利配置
-│   │   ├── reviewer.json    # 审稿人配置
-│   │   └── teaching.json    # 教学配置
-│   └── zh/                  # 中文配置（以下均为对应的中文配置）
-│       ├── cv_zh.pdf
-│       ├── education_zh.json
-│       ├── employment_zh.json
-│       ├── honors_zh.json
-│       ├── info_zh.json
-│       ├── intro_zh.txt
-│       ├── news_zh.json
-│       ├── papers_zh.json
-│       ├── patents_zh.json
-│       ├── reviewer_zh.json
-│       └── teaching_zh.json
-├── images/                  # 图片资源目录
-│   ├── experience/          # 经历相关图片
-│   ├── homepage/            # 主页图片
-│   │   ├── favicon/         # 网站图标
-│   │   ├── info icon/       # 信息图标
-│   │   └── photo/           # 个人照片
-│   └── publication/         # 出版物相关图片
-└── src/                     # 源代码目录
-    ├── base.css             # 基础样式
-    ├── cacheclearing.js     # 缓存清理
-    ├── cv_generator.js      # CV 生成器
-    ├── cv.js                # 简历相关
-    ├── distribution.js      # 页面分布相关
-    ├── experiences.js       # 经历展示
-    ├── home.js              # 主页逻辑
-    ├── language.js          # 语言切换
-    ├── mobile.css           # 移动端样式
-    ├── module-container.js  # 模块容器
-    ├── nav.js               # 导航逻辑
-    ├── light.css            # 亮色主题样式
-    ├── theme.js             # 主题管理
-    └── publications.js      # 出版物展示
+├── index.html                              # 主页面
+├── README.md                               # 英文说明文档
+├── README_zh.md                            # 中文说明文档（本文档）
+├── components/                             # 第三方组件
+│   ├── all_min.css                         # 压缩的CSS文件
+│   ├── chart.js                            # 图表库
+│   ├── fontkit.umd.js                      # 字体工具库
+│   ├── pdf-lib.min.js                      # PDF处理库
+│   ├── font/                               # 字体文件
+│   │   ├── fa-solid-900.ttf                # Font Awesome字体
+│   │   ├── fa-solid-900.woff2              # Font Awesome字体(WOFF2格式)
+│   │   ├── lmsans10-bold.otf               # Latin Modern Sans 粗体字体
+│   │   ├── lmsans10-boldoblique.otf        # Latin Modern Sans 粗斜体字体
+│   │   ├── lmsans10-oblique.otf            # Latin Modern Sans 斜体字体
+│   │   ├── lmsans10-regular.otf            # Latin Modern Sans 常规字体
+│   │   └── lmsansdemicond10-oblique.otf    # Latin Modern Sans 半压缩斜体字体
+├── configs/                                # 配置文件目录
+│   ├── config.json                         # 语言模式设置
+│   ├── en/                                 # 英文配置
+│   │   ├── cv.pdf                          # 英文简历
+│   │   ├── education.json                  # 教育经历配置
+│   │   ├── employment.json                 # 工作经历配置
+│   │   ├── honors.json                     # 荣誉配置
+│   │   ├── info.json                       # 基本信息配置
+│   │   ├── intro.txt                       # 自我介绍
+│   │   ├── news.json                       # 新闻配置
+│   │   ├── papers.json                     # 论文配置
+│   │   ├── patents.json                    # 专利配置
+│   │   ├── reviewer.json                   # 审稿人配置
+│   │   └── teaching.json                   # 教学配置
+│   └── zh/                                 # 中文配置（以下均为对应的中文配置）
+│       ├── cv_zh.pdf                       # 中文简历
+│       ├── education_zh.json               # 中文教育经历配置
+│       ├── employment_zh.json              # 中文工作经历配置
+│       ├── honors_zh.json                  # 中文荣誉配置
+│       ├── info_zh.json                    # 中文基本信息配置
+│       ├── intro_zh.txt                    # 中文自我介绍
+│       ├── news_zh.json                    # 中文新闻配置
+│       ├── papers_zh.json                  # 中文论文配置
+│       ├── patents_zh.json                 # 中文专利配置
+│       ├── reviewer_zh.json                # 中文审稿人配置
+│       └── teaching_zh.json                # 中文教学配置
+├── images/                                 # 图片资源目录
+│   ├── experience/                         # 经历相关图片
+│   ├── homepage/                           # 主页图片
+│   │   ├── favicon/                        # 网站图标
+│   │   ├── info icon/                      # 信息图标
+│   │   ├── photo/                          # 个人照片
+│   │   └── watermark/                      # 水印图片
+│   ├── preview/                            # 文档预览图片
+│   └── publication/                        # 出版物相关图片
+└── src/                                    # 源代码目录
+    ├── base.css                            # 基础样式
+    ├── cacheclearing.js                    # 缓存清理
+    ├── cv_generator.js                     # CV 生成器
+    ├── cv.js                               # 简历相关
+    ├── distribution.js                     # 页面分布相关
+    ├── experiences.js                      # 经历展示
+    ├── home.js                             # 主页逻辑
+    ├── index_origin.html                   # index.html 的原始版本
+    ├── language.js                         # 语言切换
+    ├── light.css                           # 亮色主题样式
+    ├── mobile.css                          # 移动端样式
+    ├── module-container.js                 # 模块容器
+    ├── nav.js                              # 导航逻辑
+    ├── theme.js                            # 主题管理
+    └── publications.js                     # 出版物展示
 ```
 
 ## 3. 配置语言设置
@@ -249,7 +268,9 @@ Update: 2025-09-17
                 "degree": "学位",
                 "major": "专业",
                 "college": "学院",
-                "time": "时间"
+                "time": "时间",
+                "tutor": "导师",
+                "dissertation": "毕业论文标题"
             },
             // 如果你在同一个学校具有多段不同的经历，可以在此继续添加...
         ],
@@ -277,7 +298,8 @@ Update: 2025-09-17
             {
                 "position": "职务",
                 "department": "部门",
-                "time": "时间"
+                "time": "时间",
+                "project": "项目名称"
             },
             // 如果你在同一个公司具有多段不同的经历，可以在此继续添加...
         ],
@@ -348,6 +370,7 @@ Update: 2025-09-17
         "year": "审稿年份"
     },
     // 如果你具有多项审稿经历，可以在此继续添加...
+    // 如果有不同年份下的同一期刊/会议的审稿经历，也可以按照格式在此继续添加，显示时会自动合并，无需手动操作
 ]
 ```
 
@@ -369,6 +392,9 @@ Update: 2025-09-17
       "type": "类型，期刊/会议/在投/研讨会",
       "conference": "会议名称",
       // 以上是以会议举例，如果是期刊，则写为 "journal": "期刊名称",
+      "abbr": "会议/期刊缩写",
+      "location": "会议地址",
+      // 如果是期刊，则写为 "volume": "期刊卷号,
       "image": "论文配图，存放在images/publication/目录下",
       "paperLink": "论文链接",
       "codeLink": "代码仓库链接，如果无，则可以删除此行",
@@ -431,16 +457,6 @@ Update: 2025-09-17
 
 ![最新动态_zh](./images/preview/preview_news_zh.png)
 
-### 添加简历
-
-简历以 PDF Viewer 的方式放在 cv 部分中。
-
-将你的简历 PDF 文件命名为 `cv.pdf`（英文版）以及（或）`cv_zh.pdf`（中文版），替换 `configs/en/cv.pdf` 以及（或）`configs/zh/cv_zh.pdf` 文件。
-
-![简历](./images/preview/preview_cv.png)
-
-![简历_zh](./images/preview/preview_cv_zh.png)
-
 ### 添加个人介绍
 
 个人介绍位于 home 部分右侧的第一栏中。
@@ -450,6 +466,15 @@ Update: 2025-09-17
 ![个人介绍](./images/preview/preview_intro.png)
 
 ![个人介绍_zh](./images/preview/preview_intro_zh.png)
+
+### 生成并下载简历
+
+在完成所有配置后，你可以点击cv部分中的 "生成并下载简历" 按钮，生成并下载你的简历 PDF 文件。
+
+![生成并下载简历](./images/preview/preview_cv.png)
+
+目前，生成的简历 PDF 仅限英文版，因为中文版的字体过于费时，且生成的 PDF 文件大小超过了 GitHub 允许的最大文件大小（100 MB），
+因此对于中文版用户而言，只能表示抱歉。
 
 ## 5. 添加图片
 

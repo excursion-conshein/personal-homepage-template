@@ -14,6 +14,14 @@ You can try this homepage via the link: [Excursion Conshein Homepage](https://ex
 
 ---
 
+Update: 2025-09-26
+
+## ECPH 2.1 Released, with multiple new features!
+
+- One-click CV generation, no need to manually create and upload PDF! (Currently available in English only)
+- Added "tutor" and "dissertation" display to the education module, and "project" display to the work module
+- The reviewer experience section now has a merge results feature, where review experiences for the same journal/conference in different years will be merged into one entry, with years displayed sequentially
+
 Update: 2025-09-18
 
 ## ECPH 2.0 Update 1 Released, with Light and Dark Mode Switching Function!
@@ -103,62 +111,73 @@ The homepage supports both landscape and portrait dual-end experience. After the
 
 The project directory structure is as follows:
 ```
-├── index.html               # Main page
-├── README.md                # English documentation (this document)
-├── README_zh.md             # Chinese documentation
-├── components/              # Third-party components
-│   ├── all_min.css          # Minified CSS file
-│   ├── chart.js             # Chart library
-│   ├── fa-solid-900.ttf     # Font Awesome font
-│   └── fa-solid-900.woff2   # Font Awesome font (WOFF2 format)
-├── configs/                 # Configuration files
-|   ├── config.json          # Language mode settings
-│   ├── en/                  # English configuration
-│   │   ├── cv.pdf           # English CV
-│   │   ├── education.json   # Education configuration
-│   │   ├── employment.json  # Employment configuration
-│   │   ├── honors.json      # Honors configuration
-│   │   ├── info.json        # Basic info configuration
-│   │   ├── intro.txt        # Self introduction
-│   │   ├── news.json        # News configuration
-│   │   ├── papers.json      # Publications configuration
-│   │   ├── patents.json     # Patents configuration
-│   │   ├── reviewer.json    # Reviewer configuration
-│   │   └── teaching.json    # Teaching configuration
-│   └── zh/                  # Chinese configuration (all corresponding Chinese configs below)
-│       ├── cv_zh.pdf
-│       ├── education_zh.json
-│       ├── employment_zh.json
-│       ├── honors_zh.json
-│       ├── info_zh.json
-│       ├── intro_zh.txt
-│       ├── news_zh.json
-│       ├── papers_zh.json
-│       ├── patents_zh.json
-│       ├── reviewer_zh.json
-│       └── teaching_zh.json
-├── images/                  # Image resources
-│   ├── experience/          # Experience images
-│   ├── homepage/            # Homepage images
-│   │   ├── favicon/         # Website icons
-│   │   ├── info icon/       # Info icons
-│   │   └── photo/           # Personal photo
-│   └── publication/         # Publication images
-└── src/                     # Source code
-    ├── base.css             # Base styles
-    ├── cacheclearing.js     # Cache clearing
-    ├── cv_generator.js      # CV generator
-    ├── cv.js                # CV related
-    ├── distribution.js      # Page distribution
-    ├── experiences.js       # Experience display
-    ├── home.js              # Homepage logic
-    ├── language.js          # Language switching
-    ├── mobile.css           # Mobile styles
-    ├── module-container.js  # Module container
-    ├── nav.js               # Navigation logic
-    ├── light.css            # Light theme styles
-    ├── theme.js             # Theme management
-    └── publications.js      # Publications display
+├── index.html                                  # Main page
+├── README.md                                   # English documentation (this document)
+├── README_zh.md                                # Chinese documentation
+├── components/                                 # Third-party components
+│   ├── all_min.css                             # Minified CSS file
+│   ├── chart.js                                # Chart library
+│   ├── fontkit.umd.js                          # Font kit library
+│   ├── pdf-lib.min.js                          # PDF library
+│   └── font/                                   # Font files
+│       ├── fa-solid-900.ttf                    # Font Awesome font
+│       ├── fa-solid-900.woff2                  # Font Awesome font (WOFF2 format)
+│       ├── lmsans10-bold.otf                   # Latin Modern Sans Bold font
+│       ├── lmsans10-boldoblique.otf            # Latin Modern Sans Bold Oblique font
+│       ├── lmsans10-oblique.otf                # Latin Modern Sans Oblique font
+│       ├── lmsans10-regular.otf                # Latin Modern Sans Regular font
+│       └── lmsansdemicond10-oblique.otf        # Latin Modern Sans Demi Condensed Oblique font
+├── configs/                                    # Configuration files
+│   ├── config.json                             # Language mode settings
+│   ├── en/                                     # English configuration
+│   │   ├── cv.pdf                              # English CV
+│   │   ├── education.json                      # Education configuration
+│   │   ├── employment.json                     # Employment configuration
+│   │   ├── honors.json                         # Honors configuration
+│   │   ├── info.json                           # Basic info configuration
+│   │   ├── intro.txt                           # Self introduction
+│   │   ├── news.json                           # News configuration
+│   │   ├── papers.json                         # Publications configuration
+│   │   ├── patents.json                        # Patents configuration
+│   │   ├── reviewer.json                       # Reviewer configuration
+│   │   └── teaching.json                       # Teaching configuration
+│   └── zh/                                     # Chinese configuration (all corresponding Chinese configs below)
+│       ├── cv_zh.pdf                           # Chinese CV
+│       ├── education_zh.json                   # Chinese education configuration
+│       ├── employment_zh.json                  # Chinese employment configuration
+│       ├── honors_zh.json                      # Chinese honors configuration
+│       ├── info_zh.json                        # Chinese basic info configuration
+│       ├── intro_zh.txt                        # Chinese self introduction
+│       ├── news_zh.json                        # Chinese news configuration
+│       ├── papers_zh.json                      # Chinese publications configuration
+│       ├── patents_zh.json                     # Chinese patents configuration
+│       ├── reviewer_zh.json                    # Chinese reviewer configuration
+│       └── teaching_zh.json                    # Chinese teaching configuration
+├── images/                                     # Image resources
+│   ├── experience/                             # Experience images
+│   ├── homepage/                               # Homepage images
+│   │   ├── favicon/                            # Website icons
+│   │   ├── info icon/                          # Info icons
+│   │   ├── photo/                              # Personal photo
+│   │   └── watermark/                          # Watermark images
+│   ├── preview/                                # Preview images for documentation
+│   └── publication/                            # Publication images
+└── src/                                        # Source code
+    ├── base.css                                # Base styles
+    ├── cacheclearing.js                        # Cache clearing
+    ├── cv_generator.js                         # CV generator
+    ├── cv.js                                   # CV related
+    ├── distribution.js                         # Page distribution
+    ├── experiences.js                          # Experience display
+    ├── home.js                                 # Homepage logic
+    ├── index_origin.html                       # Original version of index.html
+    ├── language.js                             # Language switching
+    ├── light.css                               # Light theme styles
+    ├── mobile.css                              # Mobile styles
+    ├── module-container.js                     # Module container
+    ├── nav.js                                  # Navigation logic
+    ├── theme.js                                # Theme management
+    └── publications.js                         # Publications display
 ```
 
 ## 3. Language Configuration
@@ -248,7 +267,9 @@ Edit `configs/en/education.json` and/or `configs/zh/education_zh.json` to add yo
                 "degree": "Degree",
                 "major": "Major",
                 "college": "College",
-                "time": "Time"
+                "time": "Time",
+                "tutor": "Tutor",
+                "dissertation": "Dissertation Title"
             }
             // If you have multiple experiences at the same institution, add more here...
         ],
@@ -275,7 +296,9 @@ Edit `configs/en/employment.json` and/or `configs/zh/employment_zh.json` to add 
         "details": [
             {
                 "position": "Position",
-                "time": "Time"
+                "department": "Department",
+                "time": "Time",
+                "project": "Project Name"
             }
             // If you have multiple positions at the same company, add more here...
         ],
@@ -346,6 +369,7 @@ Edit `configs/en/reviewer.json` and/or `configs/zh/reviewer_zh.json`:
         "year": "Year of Review"
     }
     // Add more reviewing experiences here if needed...
+    // If you have review experiences for the same journal/conference in different years, you can also add them here following the format, they will be automatically merged when displayed, no manual operation required
 ]
 ```
 
@@ -367,6 +391,9 @@ Edit `configs/en/papers.json` and/or `configs/zh/papers_zh.json`:
       "type": "Type, Conference/Journal/In Submission/Workshop",
       "conference": "Conference Name",
       // For journals, use "journal": "Journal Name"
+      "abbr": "Conference/Journal Abbreviation",
+      "location": "Conference Location",
+      // If it's a journal, use "volume": "Journal Volume"
       "image": "Paper image, stored in images/publication/",
       "paperLink": "Paper Link",
       "codeLink": "Code Repository Link, delete if not available",
@@ -429,16 +456,6 @@ Edit `configs/en/news.json` and/or `configs/zh/news_zh.json`:
 
 ![Latest News_zh](./images/preview/preview_news_zh.png)
 
-### Add CV
-
-The CV is displayed in the cv section as a PDF Viewer.
-
-Name your CV PDF file as `cv.pdf` (English version) and/or `cv_zh.pdf` (Chinese version), and replace `configs/en/cv.pdf` and/or `configs/zh/cv_zh.pdf`.
-
-![CV](./images/preview/preview_cv.png)
-
-![CV_zh](./images/preview/preview_cv_zh.png)
-
 ### Add Personal Introduction
 
 Personal introduction is in the first column on the right side of the home section.
@@ -448,6 +465,15 @@ Edit `configs/en/intro.txt` and/or `configs/zh/intro_zh.txt` to add your persona
 ![Personal Introduction](./images/preview/preview_intro.png)
 
 ![Personal Introduction_zh](./images/preview/preview_intro_zh.png)
+
+### Generate and Download Resume
+
+After completing all configurations, you can click the "Generate and Download Resume" button in the CV section to generate and download your resume PDF file.
+
+![Generate and Download Resume](./images/preview/preview_cv.png)
+
+Currently, the generated resume PDF is only available in English, because the Chinese version of the font is too time-consuming, and the generated PDF file size exceeds the maximum file size allowed by GitHub (100 MB),
+so for Chinese version users, we can only apologize.
 
 ## 5. Add Images
 
