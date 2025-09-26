@@ -811,59 +811,69 @@ async function generatePDF() {
         const educationResponse = await fetch('../configs/en/education.json');
         const educationData = await educationResponse.json();
 
-        // Add Education section
-        yPos = drawSectionTitle(page, 'Education Experiences', yPos);
+        // Add Education section only if there is data
+        if (educationData && educationData.length > 0) {
+            yPos = drawSectionTitle(page, 'Education Experiences', yPos);
 
-        yPos -= 7.5; // Add space before the line 
-        
-        // Process each education entry
-        for (const edu of educationData) {
-            const school = edu.school;
-            for (const detail of edu.details) {
-                yPos = drawEducationEntry(page, school, detail, yPos);
+            yPos -= 7.5; // Add space before the line 
+            
+            // Process each education entry
+            for (const edu of educationData) {
+                const school = edu.school;
+                for (const detail of edu.details) {
+                    yPos = drawEducationEntry(page, school, detail, yPos);
+                    yPos -= 25; // Add space between education entries
+                }
             }
-            yPos -= 25; // Add space between education entries
         }
 
         // Employment Section
         const employmentResponse = await fetch('../configs/en/employment.json');
         const employmentData = await employmentResponse.json();
 
-        // Add Employment section
-        yPos = drawSectionTitle(page, 'Employment Experiences', yPos);
+        // Add Employment section only if there is data
+        if (employmentData && employmentData.length > 0) {
+            yPos = drawSectionTitle(page, 'Employment Experiences', yPos);
 
-        yPos -= 7.5; // Add space before the line 
+            yPos -= 7.5; // Add space before the line 
 
-        // Process each employment entry
-        for (const job of employmentData) {
-            const company = job.company;
-            for (const detail of job.details) {
-                yPos = drawEmploymentEntry(page, company, detail, yPos);
+            // Process each employment entry
+            for (const job of employmentData) {
+                const company = job.company;
+                for (const detail of job.details) {
+                    yPos = drawEmploymentEntry(page, company, detail, yPos);
+                    yPos -= 25; // Add space between employment entries
+                }
             }
-            yPos -= 25; // Add space between employment entries
         }
 
         // Publications Section
         const publicationsResponse = await fetch('../configs/en/papers.json');
         const publicationsData = await publicationsResponse.json();
 
-        // Add Publications section
-        yPos = drawSectionTitle(page, 'Publications', yPos);
+        // Check if there are any publications
+        const hasPublications = publicationsData && Object.keys(publicationsData).length > 0 && 
+                               Object.values(publicationsData).some(papers => papers && papers.length > 0);
 
-        // Add Publications Classification
-        yPos = drawPublicationClassification(page, yPos);
+        // Add Publications section only if there is data
+        if (hasPublications) {
+            yPos = drawSectionTitle(page, 'Publications', yPos);
 
-        yPos -= 7.5; // Add space before the line 
+            // Add Publications Classification
+            yPos = drawPublicationClassification(page, yPos);
 
-        // Process each publication entry
-        // publicationsData is an object with years as keys and paper arrays as values
-        const years = Object.keys(publicationsData).sort((a, b) => parseInt(b) - parseInt(a)); // Sort years in descending order
-        
-        for (const yearKey of years) {
-            const papers = publicationsData[yearKey]; // Get the papers array for this year
+            yPos -= 7.5; // Add space before the line 
 
-            for (const paper of papers){
-                yPos = drawPublicationEntry(page, paper, yearKey, yPos);
+            // Process each publication entry
+            // publicationsData is an object with years as keys and paper arrays as values
+            const years = Object.keys(publicationsData).sort((a, b) => parseInt(b) - parseInt(a)); // Sort years in descending order
+            
+            for (const yearKey of years) {
+                const papers = publicationsData[yearKey]; // Get the papers array for this year
+
+                for (const paper of papers){
+                    yPos = drawPublicationEntry(page, paper, yearKey, yPos);
+                }
             }
         }
 
@@ -871,6 +881,7 @@ async function generatePDF() {
         const patentsResponse = await fetch('../configs/en/patents.json');
         const patentsData = await patentsResponse.json();
         
+        // Add Patents subsection only if there is data
         if (patentsData && patentsData.patents && patentsData.patents.length > 0) {
             
             yPos -= 7.5; // Add space before the line
@@ -884,63 +895,74 @@ async function generatePDF() {
             }
         }
 
-        yPos -= 15; // Add space before the line
+        // Add space before the line only if there were publications or patents
+        if (hasPublications || (patentsData && patentsData.patents && patentsData.patents.length > 0)) {
+            yPos -= 15; // Add space before the line
+        }
 
-        // Add academic service section
-        yPos = drawSectionTitle(page, 'Academic Service', yPos);
-
-        yPos -= 7.5; // Add space before the line 
-
-        // Add teaching sub-section
-        yPos = drawSubsectionTitle(page, 'Teaching Experiences', yPos);
-
-        yPos -= 7.5; // Add space before the line 
-
-        // Teaching Experiences Section
+        // Check if any Academic Service subsections have data
         const teachingResponse = await fetch('../configs/en/teaching.json');
         const teachingData = await teachingResponse.json();
-
-        // Process each teaching entry
-        for (const teaching of teachingData) {
-            yPos = drawTeachingEntry(page, teaching, yPos);
-            yPos -= 15; // Add space between teaching entries
-        }
-
-        yPos -= 7.5; // Add space before the line
-
-        // Add Honors subsection
-        yPos = drawSubsectionTitle(page, 'Honors and Awards', yPos);
-
-        yPos -= 7.5; // Add space before the line 
-
-        // Honors Section
+        
         const honorsResponse = await fetch('../configs/en/honors.json');
         const honorsData = await honorsResponse.json();
-
-        // Process each honor entry
-        for (const honor of honorsData) {
-            yPos = drawHonorEntry(page, honor, yPos);
-            yPos -= 15; // Add space between honor entries
-        }
-
-        yPos -= 7.5; // Add space before the line
-
-        // Add Review Experiences subsection
-        yPos = drawSubsectionTitle(page, 'Review Experiences', yPos);
-
-        // Review Experiences Section
+        
         const reviewerResponse = await fetch('../configs/en/reviewer.json');
         const reviewerData = await reviewerResponse.json();
 
-        // Process reviewer data to merge entries and sort
-        const sortedReviewers = processReviewerData(reviewerData);
+        // Add academic service section only if there is data in any subsection
+        if ((teachingData && teachingData.length > 0) || 
+            (honorsData && honorsData.length > 0) || 
+            (reviewerData && reviewerData.length > 0)) {
+            
+            yPos = drawSectionTitle(page, 'Academic Service', yPos);
+            yPos -= 7.5; // Add space before the line 
 
-        yPos -= 7.5; // Add space before the line 
+            // Add teaching sub-section only if there is data
+            if (teachingData && teachingData.length > 0) {
+                yPos = drawSubsectionTitle(page, 'Teaching Experiences', yPos);
 
-        // Process each reviewer entry
-        for (const reviewer of sortedReviewers) {
-            yPos = drawReviewEntry(page, reviewer.name, reviewer.years, yPos);
-            yPos -= 15; // Add space between reviewer entries
+                yPos -= 7.5; // Add space before the line 
+
+                // Process each teaching entry
+                for (const teaching of teachingData) {
+                    yPos = drawTeachingEntry(page, teaching, yPos);
+                    yPos -= 25; // Add more space between teaching entries
+                }
+
+                yPos -= 7.5; // Add space before the line
+            }
+
+            // Add Honors subsection only if there is data
+            if (honorsData && honorsData.length > 0) {
+                yPos = drawSubsectionTitle(page, 'Honors and Awards', yPos);
+
+                yPos -= 7.5; // Add space before the line 
+
+                // Process each honor entry
+                for (const honor of honorsData) {
+                    yPos = drawHonorEntry(page, honor, yPos);
+                    yPos -= 25; // Add more space between honor entries
+                }
+
+                yPos -= 7.5; // Add space before the line
+            }
+
+            // Add Review Experiences subsection only if there is data
+            if (reviewerData && reviewerData.length > 0) {
+                yPos = drawSubsectionTitle(page, 'Review Experiences', yPos);
+
+                // Process reviewer data to merge entries and sort
+                const sortedReviewers = processReviewerData(reviewerData);
+
+                yPos -= 7.5; // Add space before the line 
+
+                // Process each reviewer entry
+                for (const reviewer of sortedReviewers) {
+                    yPos = drawReviewEntry(page, reviewer.name, reviewer.years, yPos);
+                    yPos -= 15; // Add more space between reviewer entries
+                }
+            }
         }
 
 
