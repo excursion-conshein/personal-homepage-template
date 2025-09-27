@@ -1,4 +1,4 @@
-# Excursion ConsHein Personal Homepage (ECPH)
+# Excursion Studio Personal Homepage (ESPH)
 
 English Version | [中文版](README_zh.md)
 
@@ -10,13 +10,13 @@ This tutorial teaches you how to fork this project and add your own information 
 
 **If you use this project template to create a personal homepage, you must ensure compliance with relevant laws and regulations and not use it for any commercial activities.**
 
-You can try this homepage via the link: [Excursion Conshein Homepage](https://excursion-conshein.github.io/excursion-conshein-homepage/)
+You can try this homepage via the link: [Excursion Studio Homepage](https://excursion-studio.github.io/personal-homepage-template/)
 
 ---
 
 Update: 2025-09-26
 
-## ECPH 2.1 Released, with multiple new features!
+## ESPH 2.1 Released, with multiple new features!
 
 - One-click CV generation, no need to manually create and upload PDF! (Currently available in English only)
 - Added "tutor" and "dissertation" display to the education module, and "project" display to the work module
@@ -24,14 +24,14 @@ Update: 2025-09-26
 
 Update: 2025-09-18
 
-## ECPH 2.0 Update 1 Released, with Light and Dark Mode Switching Function!
+## ESPH 2.0 Update 1 Released, with Light and Dark Mode Switching Function!
 
 ![light](./images/preview/interface_light.gif)
 
 ---
 Update: 2025-09-17
 
-## ECPH 2.0 is officially online!
+## ESPH 2.0 is officially online!
 
 This 2.0 version of the homepage template brings more innovations and optimizations!
 
@@ -43,13 +43,15 @@ This 2.0 version of the homepage template brings more innovations and optimizati
 
 ![lang](./images/preview/interface_lang.gif)
 
-### 3. Added Excursion ConsHein and "Excursion Pigeon" logos in the top left corner
+### 3. Added Excursion Studio and "Excursion Pigeon" logos in the top left corner
 
 ![logo](./images/preview/topleft.png)
 
+- This feature was updated in version 2.1: Added personal name display and "Excursion Pigeon" logo
+
 **In addition, there are more content updates below!**
 
-**Excursion ConsHein Homepage 2.0, waiting for you to experience!**
+**Excursion Studio Homepage 2.0, waiting for you to experience!**
 
 (Note: The old version of the personal homepage template is stored in `src/index_origin.html`)
 
@@ -77,7 +79,7 @@ The homepage supports both landscape and portrait dual-end experience. After the
 
 ### Step 1: Fork the Repository
 
-1. Visit the [Excursion-ConsHein.github.io](https://github.com/Excursion-ConsHein/Excursion-ConsHein.github.io) repository
+1. Visit the [Excursion-Studio.github.io](https://github.com/Excursion-Studio/Excursion-Studio.github.io) repository
 2. Click the "Fork" button in the upper right corner to copy the repository to your GitHub account
 3. Clone the forked repository to your local machine:
    ```bash
@@ -91,11 +93,11 @@ The homepage supports both landscape and portrait dual-end experience. After the
    ```
    Each person or organization can have only one Github Pages in this form.
 
-   For example, my username is Excursion-ConsHein, and the repo name is Excursion-ConsHein.github.io, then I should run:
+   For example, my username is Excursion-Studio, and the repo name is Excursion-Studio.github.io, then I should run:
    ```bash
-   git clone https://github.com/ConsHein/Excursion-ConsHein.github.io.git
+   git clone https://github.com/ConsHein/Excursion-Studio.github.io.git
    ```
-   This will clone the repository into the local `Excursion-ConsHein.github.io` directory.
+   This will clone the repository into the local `Excursion-Studio.github.io` directory.
 
    Of course, you can name the repository differently, but then your page url becomes:
    ```bash
@@ -531,6 +533,6 @@ A: After you push changes to GitHub, it usually updates within a few minutes.
 
 If you encounter problems during use, you can contact us by:
 - Email: Conshein_Yuanxing@outlook.com
-- GitHub: [Excursion-ConsHein](https://github.com/Excursion-ConsHein)
+- GitHub: [Excursion-Studio](https://github.com/Excursion-Studio)
 
-I hope you can freely build your own personal homepage with **Excursion ConsHein Homepage**!
+I hope you can freely build your own personal homepage with **Excursion Studio Homepage**!

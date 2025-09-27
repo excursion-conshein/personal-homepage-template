@@ -1,4 +1,4 @@
-# Excursion ConsHein 个人主页 (ECPH) 
+# Excursion Studio 个人主页 (ESPH) 
 
 [English Version](README.md) | [中文版](README_zh.md)
 
@@ -10,13 +10,13 @@
 
 **如果您使用本项目模板创建个人主页，您需要确保遵守相关法律法规，不得用于任何商业活动。**
 
-可以通过链接尝试本主页：[Excursion Conshein Homepage](https://excursion-conshein.github.io/excursion-conshein-homepage/)
+可以通过链接尝试本主页：[Excursion Studio Homepage](https://excursion-studio.github.io/personal-homepage-template/)
 
 --- 
 
 Update: 2025-09-26
 
-## ECPH 2.1 发布，推出了多种全新功能！
+## ESPH 2.1 发布，推出了多种全新功能！
 
 - 简历一键生成，无需手动制作PDF上传！（目前仅限英文版）
 - 教育模块新增“导师”、“毕业论文”展示，工作模块新增“项目”展示
@@ -24,7 +24,7 @@ Update: 2025-09-26
 
 Update: 2025-09-18
 
-## ECPH 2.0 Update 1 发布，推出新的明暗切换功能！
+## ESPH 2.0 Update 1 发布，推出新的明暗切换功能！
 
 ![light](./images/preview/interface_light.gif)
 
@@ -32,7 +32,7 @@ Update: 2025-09-18
 
 Update: 2025-09-17
 
-## 全新的 ECPH 2.0 版本正式上线！
+## 全新的 ESPH 2.0 版本正式上线！
 
 本次 2.0 版本的主页模板，带来了更多的革新和优化内容！
 
@@ -44,13 +44,15 @@ Update: 2025-09-17
 
 ![lang](./images/preview/interface_lang.gif)
 
-### 3. 左上角增设 Excursion ConsHein 以及“远行鸽”的logo
+### 3. 左上角增设 Excursion Studio 以及“远行鸽”的logo
 
 ![logo](./images/preview/topleft.png)
 
+- 此功能在 2.1 版本更新为：增设个人姓名显示和“远行鸽”的logo
+
 **除此之外，还有更多内容更新，尽在下文！**
 
-**Excursion ConsHein Homepage 2.0，等你体验！**
+**Excursion Studio Homepage 2.0，等你体验！**
 
 （注：旧版本的个人主页模板已存放在 `src/index_origin.html` 中）
 
@@ -78,7 +80,7 @@ Update: 2025-09-17
 
 ### 步骤 1: Fork 仓库
 
-1. 访问 [Excursion-ConsHein.github.io](https://github.com/Excursion-ConsHein/Excursion-ConsHein.github.io) 仓库
+1. 访问 [Excursion-Studio.github.io](https://github.com/Excursion-Studio/Excursion-Studio.github.io) 仓库
 2. 点击右上角的 "Fork" 按钮，将仓库复制到你的 GitHub 账户
 3. 将 fork 后的仓库克隆到本地：
    ```bash
@@ -92,11 +94,11 @@ Update: 2025-09-17
    ```
    每一个人或组织，有且仅有一份 Github Pages 是以这种形式的。
    
-   例如，我的用户名是 Excursion-ConsHein，仓库名是 Excursion-ConsHein.github.io，那么我应该执行：
+   例如，我的用户名是 Excursion-Studio，仓库名是 Excursion-Studio.github.io，那么我应该执行：
    ```bash
-   git clone https://github.com/ConsHein/Excursion-ConsHein.github.io.git
+   git clone https://github.com/ConsHein/Excursion-Studio.github.io.git
    ```
-   这将把仓库克隆到本地的 `Excursion-ConsHein.github.io` 目录中。
+   这将把仓库克隆到本地的 `Excursion-Studio.github.io` 目录中。
 
    当然，你也可以不使用自己的用户名来命名仓库，不过此时你的页面url就变成：
    ```bash
@@ -532,6 +534,6 @@ A: 当你将修改推送到 GitHub 后，通常会在几分钟内更新。
 
 如果你在使用过程中遇到问题，可以通过以下方式联系我们：
 - Email: Conshein_Yuanxing@outlook.com
-- GitHub: [Excursion-ConsHein](https://github.com/Excursion-ConsHein)
+- GitHub: [Excursion-Studio](https://github.com/Excursion-Studio)
 
-希望你可以在 **Excursion ConsHein Homepage** 中畅快搭建起属于自己的个人主页！
+希望你可以在 **Excursion Studio Homepage** 中畅快搭建起属于自己的个人主页！
