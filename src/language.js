@@ -399,7 +399,8 @@ function updateUILanguage() {
         navLinks: document.querySelectorAll('.nav-links a'),
         langSwitch: document.querySelector('.language-switch'),
         aboutTitle: document.querySelector('.intro-section h3'),
-        newsTitle: document.querySelector('.news-section h3')
+        newsTitle: document.querySelector('.news-section h3'),
+        logo: document.querySelector('.logo')
     };
     
     // Update page title with name from info config
@@ -410,12 +411,29 @@ function updateUILanguage() {
       .then(data => {
         if (data && data.name) {
           document.title = data.name;
+          
+          // Update logo content with the same name data
+          if (elements.logo) {
+            elements.logo.innerHTML = `<img src="images/homepage/favicon/favicon.ico" alt="Logo" style="height: 32px; margin-right: 10px;"><span>${data.name}</span>`;
+          }
         } else {
           document.title = getText('pageTitle'); // fallback
+          
+          // Update logo with fallback text
+          if (elements.logo) {
+            const fallbackText = lang === 'zh' ? '主页' : 'Home';
+            elements.logo.innerHTML = `<img src="images/homepage/favicon/favicon.ico" alt="Logo" style="height: 32px; margin-right: 10px;"><span>${fallbackText}</span>`;
+          }
         }
       })
       .catch(() => {
         document.title = getText('pageTitle'); // fallback
+        
+        // Update logo with fallback text in case of error
+        if (elements.logo) {
+          const fallbackText = lang === 'zh' ? '主页' : 'Home';
+          elements.logo.innerHTML = `<img src="images/homepage/favicon/favicon.ico" alt="Logo" style="height: 32px; margin-right: 10px;"><span>${fallbackText}</span>`;
+        }
       });
     
     // Update navigation links
